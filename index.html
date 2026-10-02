@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النبات والضوء - الصف الخامس</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cairo Arabic Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            min-height: 100vh;
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md border-b border-emerald-100 py-4 px-6 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <span class="bg-emerald-600 text-white p-2 rounded-xl text-xl shadow-sm">🌱</span>
+                <div>
+                    <h1 class="text-xl font-black text-emerald-800">النبات والضوء</h1>
+                    <p class="text-xs text-slate-500 font-semibold">مدرسة بيثنة للتعليم الأساسي - إعداد معلمي العلوم</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="bg-emerald-100 text-emerald-800 text-sm px-3 py-1.5 rounded-full font-bold shadow-xs">مادة العلوم</span>
+                <span class="bg-teal-100 text-teal-800 text-sm px-3 py-1.5 rounded-full font-bold shadow-xs">الصف الخامس</span>
+                <span class="bg-amber-100 text-amber-800 text-sm px-3 py-1.5 rounded-full font-bold shadow-xs">الوحدة الأولى</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-5xl w-full mx-auto p-4 sm:p-6 flex flex-col justify-center">
+
+        <!-- Main Menu View -->
+        <div id="view-home" class="fade-in space-y-8">
+            <div class="text-center space-y-3 bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-xl border border-emerald-100">
+                <span class="text-6xl inline-block mb-2 animate-bounce">🌿</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-emerald-900">مرحباً بك في عالم العلوم الممتع!</h2>
+                <p class="text-slate-600 max-w-xl mx-auto text-base sm:text-lg">
+                    استكشف كيف يؤثر الضوء على نمو النباتات من خلال الدروس التفاعلية، المختبر الافتراضي، والاختبارات الممتعة!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Lesson Button -->
+                <button onclick="switchView('lesson')" class="group bg-gradient-to-br from-emerald-500 to-teal-600 text-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1.5 text-right flex flex-col justify-between border border-emerald-400">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📚</div>
+                        <h3 class="text-xl font-bold">شرح الدرس</h3>
+                        <p class="text-emerald-100 text-sm">اقرأ الدرس واستوعب المفاهيم العلمية الأساسية بخطوات منظمة وبسيطة مع رسومات توضيحية.</p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between text-emerald-100 font-bold text-sm">
+                        <span>ابدأ التعلم</span>
+                        <span class="transform group-hover:-translate-x-1 transition-transform">←</span>
+                    </div>
+                </button>
+
+                <!-- Lab Button -->
+                <button onclick="switchView('lab')" class="group bg-gradient-to-br from-teal-500 to-cyan-600 text-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1.5 text-right flex flex-col justify-between border border-teal-400">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🔬</div>
+                        <h3 class="text-xl font-bold">المختبر الافتراضي</h3>
+                        <p class="text-teal-100 text-sm">استقصِ تأثير الضوء على نمو نبات (أ) بجوار النافذة ونبات (ب) في خزانة مظلمة.</p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between text-teal-100 font-bold text-sm">
+                        <span>ادخل المختبر</span>
+                        <span class="transform group-hover:-translate-x-1 transition-transform">←</span>
+                    </div>
+                </button>
+
+                <!-- Quiz Button -->
+                <button onclick="switchView('quiz')" class="group bg-gradient-to-br from-amber-500 to-orange-600 text-white p-6 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1.5 text-right flex flex-col justify-between border border-amber-400">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">📝</div>
+                        <h3 class="text-xl font-bold">اختبار تفاعلي</h3>
+                        <p class="text-amber-100 text-sm">اختبر معلوماتك من خلال 6 أسئلة متنوعة (اختيار، صح/خطأ، سحب وإفلات، وترتيب).</p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between text-amber-100 font-bold text-sm">
+                        <span>ابدأ الاختبار</span>
+                        <span class="transform group-hover:-translate-x-1 transition-transform">←</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Lesson View -->
+        <div id="view-lesson" class="hidden fade-in bg-white rounded-3xl shadow-xl p-6 sm:p-8 border border-emerald-100">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h2 class="text-2xl font-black text-emerald-900 flex items-center gap-2">
+                    <span>📖</span> شرح الدرس: النبات والضوء
+                </h2>
+                <button onclick="switchView('home')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+                    العودة للقائمة الرئيسية
+                </button>
+            </div>
+
+            <!-- Lesson Slides Container -->
+            <div id="lesson-content" class="min-h-[350px] flex flex-col justify-between">
+                <!-- Slide injected via JS -->
+            </div>
+
+            <!-- Slide Navigation Controls -->
+            <div class="flex justify-between items-center mt-8 pt-4 border-t">
+                <button id="lesson-prev" onclick="changeLessonSlide(-1)" class="bg-emerald-100 text-emerald-800 px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-emerald-200 transition-all disabled:opacity-40 disabled:cursor-not-allowed">
+                    السابق
+                </button>
+                <span id="lesson-indicator" class="text-slate-500 font-bold text-sm">الشاشة 1 من 3</span>
+                <button id="lesson-next" onclick="changeLessonSlide(1)" class="bg-emerald-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-emerald-700 transition-all shadow-md">
+                    التالي
+                </button>
+            </div>
+        </div>
+
+        <!-- Lab View -->
+        <div id="view-lab" class="hidden fade-in bg-white rounded-3xl shadow-xl p-6 sm:p-8 border border-teal-100">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h2 class="text-2xl font-black text-teal-900 flex items-center gap-2">
+                    <span>🔬</span> المختبر الافتراضي: استقصاء تأثير الضوء على نمو النبات
+                </h2>
+                <button onclick="switchView('home')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+                    العودة للقائمة الرئيسية
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Lab Controls & Information -->
+                <div class="lg:col-span-1 space-y-4 bg-teal-50 p-5 rounded-2xl border border-teal-100">
+                    <h3 class="font-bold text-teal-900 text-lg">خطوات الاستقصاء (نشاط 1-5):</h3>
+                    <p class="text-sm text-slate-600">قارن نمو نبتتين متماثلتين في أصيصي زرع تحت ظروف إضاءة مختلفة لمدة ثلاثة أسابيع:</p>
+                    <ul class="text-sm space-y-2 text-slate-700 font-semibold">
+                        <li class="flex items-center gap-2">☀️ <span><b>نبات (أ):</b> في مكان مضيء بجوار النافذة.</span></li>
+                        <li class="flex items-center gap-2">📦 <span><b>نبات (ب):</b> في خزانة مظلمة.</span></li>
+                        <li class="flex items-center gap-2">💧 <span><b>الماء:</b> يتم ري النبتتين بنفس كمية الماء.</span></li>
+                    </ul>
+
+                    <div class="pt-4 border-t border-teal-200">
+                        <label class="block font-bold text-sm text-teal-900 mb-2">اختر عدد الأيام (مراقبة كل 4 أيام):</label>
+                        <select id="lab-days" class="w-full p-2.5 rounded-xl border border-teal-300 bg-white font-bold text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <option value="0">اليوم الأول (البداية)</option>
+                            <option value="7">بعد 8 أيام</option>
+                            <option value="15">بعد 16 يومًا</option>
+                            <option value="21">بعد 3 أسابيع (النهائي)</option>
+                        </select>
+                        <button onclick="updateLabSimulation()" class="w-full mt-3 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-xl shadow-md transition-all">
+                            مراقبة وتحديث الملاحظات
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Lab Visual & Results Table -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-center">
+                        <div class="bg-white p-4 rounded-xl shadow-xs border border-emerald-100">
+                            <div class="text-4xl mb-2" id="plant-a-icon">🪴</div>
+                            <h4 class="font-bold text-emerald-800">نبات (أ) - بجوار النافذة</h4>
+                            <div id="plant-a-status" class="text-xs text-slate-600 mt-2 font-semibold">الطول: 10 سم | الأوراق خضراء ونضرة</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-xs border border-amber-100">
+                            <div class="text-4xl mb-2" id="plant-b-icon">🪴</div>
+                            <h4 class="font-bold text-amber-800">نبات (ب) - الخزانة المظلمة</h4>
+                            <div id="plant-b-status" class="text-xs text-slate-600 mt-2 font-semibold">الطول: 10 سم | الأوراق باهتة</div>
+                        </div>
+                    </div>
+
+                    <!-- Observation Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-right border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-teal-700 text-white">
+                                    <th class="p-3 rounded-r-xl">وجه المقارنة</th>
+                                    <th class="p-3">نبات (أ) - مضيء</th>
+                                    <th class="p-3 rounded-l-xl">نبات (ب) - مظلم</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lab-table-body" class="bg-white divide-y divide-slate-100 font-medium">
+                                <!-- Populated via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz View -->
+        <div id="view-quiz" class="hidden fade-in bg-white rounded-3xl shadow-xl p-6 sm:p-8 border border-amber-100">
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <h2 class="text-2xl font-black text-amber-900 flex items-center gap-2">
+                    <span>📝</span> الاختبار التفاعلي وأوراق العمل
+                </h2>
+                <button onclick="switchView('home')" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-xl text-sm font-bold transition-all">
+                    العودة للقائمة الرئيسية
+                </button>
+            </div>
+
+            <div id="quiz-container">
+                <!-- Quiz questions injected via JS -->
+            </div>
+
+            <!-- Quiz Feedback Box -->
+            <div id="quiz-feedback" class="mt-4 p-4 rounded-xl font-bold text-center hidden"></div>
+
+            <div class="flex justify-between items-center mt-6 pt-4 border-t">
+                <span id="quiz-progress" class="text-slate-500 font-bold text-sm">النشاط 1 من 6</span>
+                <button id="quiz-next-btn" onclick="nextQuizStep()" class="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2.5 rounded-xl font-bold text-sm transition-all shadow-md hidden">
+                    التالي ➔
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-xs text-slate-500 font-semibold border-t border-slate-100 mt-auto">
+        جميع الحقوق محفوظة © مدرسة بيثنة للتعليم الأساسي - معلمو العلوم بالصف الخامس
+    </footer>
+
+    <script>
+        // Global Application State
+        let currentLessonSlide = 0;
+        let currentQuizStep = 0;
+        let quizScore = 0;
+        
+        // Quiz interactive state variables for Drag & Drop and Ordering
+        let dragDropped = {
+            "كمية الضوء": null,
+            "نمو النبات": null,
+            "كمية الماء": null,
+            "نوع التربة": null
+        };
+        let orderSteps = [
+            "إجراء التجربة",
+            "استخلاص الاستنتاج",
+            "تحديد السؤال",
+            "مقارنة النتائج",
+            "تسجيل النتائج"
+        ];
+        let correctOrder = [
+            "تحديد السؤال",
+            "إجراء التجربة",
+            "تسجيل النتائج",
+            "مقارنة النتائج",
+            "استخلاص الاستنتاج"
+        ];
+
+        // Web Audio API for sound effects
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playSound(type) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (type === 'success') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(440, audioCtx.currentTime); // A4
+                osc.frequency.setValueAtTime(554.37, audioCtx.currentTime + 0.1); // C#5
+                osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.2); // E5
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.4);
+            } else if (type === 'error') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+                osc.frequency.setValueAtTime(150, audioCtx.currentTime + 0.15);
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.3);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.3);
+            }
+        }
+
+        // Lesson Slides Content with plant illustrations below each explanation
+        const lessonSlides = [
+            {
+                title: "أهداف التعلم",
+                content: `
+                    <div class="space-y-6">
+                        <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-200 space-y-4">
+                            <h3 class="text-xl font-black text-emerald-900">بعد دراسة هذا الدرس أستطيع أن:</h3>
+                            <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-xs border border-emerald-100 font-bold text-emerald-800 text-lg">
+                                <span class="bg-emerald-600 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm">✓</span>
+                                أستطيع أن أشرح لماذا تحتاج النباتات للضوء لكي تنمو بصورة سليمة.
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-3xl border border-emerald-200 text-center shadow-sm">
+                            <div class="text-7xl mb-2 animate-bounce">🌱☀️️</div>
+                            <p class="text-sm font-bold text-emerald-900">صورة توضيحية: النبات ونموّه الصحي بوجود ضوء الشمس والماء</p>
+                            <p class="text-xs text-slate-500 mt-1">الضوء هو مصدر الطاقة الأساسي لصنع الغذاء وتكوين الأوراق الخضراء النضرة.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "لماذا تحتاج النباتات للضوء؟",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div class="space-y-4">
+                            <p class="text-slate-700 font-medium leading-relaxed text-lg">
+                                تعتبر النباتات كائنات حية مذهلة تحتاج إلى عدة عناصر أساسية لكي تنمو وتعيش بصحة جيدة، وأهمها <b>الضوء</b> والماء والهواء والتربة.
+                            </p>
+                            <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-amber-900 font-semibold text-sm">
+                                💡 <b>معلومة علمية:</b> يحتاج النبات إلى ضوء الشمس لكي يصنع غذاءه بنفسه وينمو بشكل سليم وقوي ذي أوراق خضراء نضرة.
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-emerald-50 to-teal-100 p-6 rounded-3xl text-center flex flex-col items-center justify-center border border-emerald-200 shadow-inner">
+                            <div class="text-8xl mb-3 transform hover:scale-105 transition-transform">🌿☀️🌳</div>
+                            <h4 class="font-black text-emerald-900 text-lg">شكل النبات المزدهر تحت ضوء الشمس</h4>
+                            <p class="text-xs text-slate-500 mt-1">تظهر السيقان قوية والأوراق خضراء نضرة ومتوازنة.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "مقارنة النمو بين الضوء والظلام",
+                content: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-emerald-900 text-lg mb-2 flex items-center gap-2"><span>🪴</span> النبتة (أ) في الضوء</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    تنمو بشكل طبيعي، سيقانها قوية وسميكة، أوراقها كثيرة ولونها أخضر داكن وجميل لأنها تحصل على طاقة الضوء الكافية.
+                                </p>
+                            </div>
+                            <div class="mt-6 bg-white p-4 rounded-2xl border border-emerald-200 text-center shadow-xs">
+                                <span class="text-6xl inline-block">🌳</span>
+                                <div class="text-xs font-bold text-emerald-800 mt-2">شكل نبتة صحية وقوية (معرضة للضوء)</div>
+                            </div>
+                        </div>
+                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-amber-900 text-lg mb-2 flex items-center gap-2"><span>📦</span> النبتة (ب) في الظلام</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    تنمو بطريقة ضعيفة، تصبح سيقانها رفيعة وطويلة بشكل غير طبيعي، ويتحول لون أوراقها إلى الأصفر الباهت لعدم تعرضها للضوء.
+                                </p>
+                            </div>
+                            <div class="mt-6 bg-white p-4 rounded-2xl border border-amber-200 text-center shadow-xs">
+                                <span class="text-6xl inline-block">🍂</span>
+                                <div class="text-xs font-bold text-amber-800 mt-2">شكل نبتة ضعيفة وصفراء (محجوبة عن الضوء)</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        // View Switcher Handler
+        function switchView(viewName) {
+            document.getElementById('view-home').classList.add('hidden');
+            document.getElementById('view-lesson').classList.add('hidden');
+            document.getElementById('view-lab').classList.add('hidden');
+            document.getElementById('view-quiz').classList.add('hidden');
+
+            document.getElementById(`view-${viewName}`).classList.remove('hidden');
+
+            if (viewName === 'lesson') {
+                currentLessonSlide = 0;
+                renderLessonSlide();
+            } else if (viewName === 'lab') {
+                updateLabSimulation();
+            } else if (viewName === 'quiz') {
+                currentQuizStep = 0;
+                quizScore = 0;
+                dragDropped = { "كمية الضوء": null, "نمو النبات": null, "كمية الماء": null, "نوع التربة": null };
+                orderSteps = ["إجراء التجربة", "استخلاص الاستنتاج", "تحديد السؤال", "مقارنة النتائج", "تسجيل النتائج"];
+                renderQuizStep();
+            }
+        }
+
+        // Lesson Navigation
+        function renderLessonSlide() {
+            const slide = lessonSlides[currentLessonSlide];
+            const container = document.getElementById('lesson-content');
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-black text-emerald-800 border-b pb-3 flex items-center gap-2"><span>📌</span> ${slide.title}</h3>
+                    ${slide.content}
+                </div>
+            `;
+            document.getElementById('lesson-indicator').innerText = `الشاشة ${currentLessonSlide + 1} من ${lessonSlides.length}`;
+            document.getElementById('lesson-prev').disabled = currentLessonSlide === 0;
+            document.getElementById('lesson-next').innerText = currentLessonSlide === lessonSlides.length - 1 ? 'إنهاء الدرس' : 'التالي ➔';
+        }
+
+        function changeLessonSlide(direction) {
+            currentLessonSlide += direction;
+            if (currentLessonSlide >= lessonSlides.length) {
+                switchView('home');
+            } else {
+                renderLessonSlide();
+            }
+        }
+
+        // Lab Simulation Handler
+        function updateLabSimulation() {
+            const daysSelect = document.getElementById('lab-days').value;
+            const tableBody = document.getElementById('lab-table-body');
+            const plantAIcon = document.getElementById('plant-a-icon');
+            const plantBIcon = document.getElementById('plant-b-icon');
+            const plantAStatus = document.getElementById('plant-a-status');
+            const plantBStatus = document.getElementById('plant-b-status');
+
+            let aLength = "10 سم", bLength = "10 سم";
+            let aLeaves = "4 أوراق", bLeaves = "4 أوراق";
+            let aColor = "أخضر نضر", bColor = "أخضر";
+            let aShape = "قوي ومستقيم", bShape = "طبيعي في البداية";
+
+            if (daysSelect === "7") {
+                aLength = "12 سم"; bLength = "14 سم";
+                aLeaves = "6 أوراق"; bLeaves = "5 أوراق";
+                aColor = "أخضر داكن"; bColor = "أخضر باهت قليلاً";
+                aShape = "ساق سميكة ومستقيمة"; bShape = "رفيعة وطويلة نسبياً";
+                plantAIcon.innerHTML = "🌿";
+                plantBIcon.innerHTML = "🌱";
+            } else if (daysSelect === "15") {
+                aLength = "15 سم"; bLength = "18 سم";
+                aLeaves = "9 أوراق"; bLeaves = "6 أوراق";
+                aColor = "أخضر زاهي"; bColor = "أصفر باهت";
+                aShape = "قوي وصحي ومتوازن"; bShape = "ضعيفة ورفيعة جداً";
+                plantAIcon.innerHTML = "🪴";
+                plantBIcon.innerHTML = "🌾";
+            } else if (daysSelect === "21") {
+                aLength = "18 سم"; bLength = "22 سم";
+                aLeaves = "12 أوراق"; bLeaves = "6 أوراق";
+                aColor = "أخضر داكن صحي"; bColor = "أصفر مصفر باهت";
+                aShape = "نمو ممتاز وقوي جداً"; bShape = "ضعيفة وذابلة";
+                plantAIcon.innerHTML = "🌳";
+                plantBIcon.innerHTML = "🍂";
+            } else {
+                plantAIcon.innerHTML = "🪴";
+                plantBIcon.innerHTML = "🪴";
+            }
+
+            plantAStatus.innerText = `الطول: ${aLength} | اللون: ${aColor}`;
+            plantBStatus.innerText = `الطول: ${bLength} | اللون: ${bColor}`;
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td class="p-3 font-bold text-slate-700 bg-slate-50">الطول (cm)</td>
+                    <td class="p-3 text-emerald-700 font-bold">${aLength}</td>
+                    <td class="p-3 text-amber-700 font-bold">${bLength}</td>
+                </tr>
+                <tr>
+                    <td class="p-3 font-bold text-slate-700 bg-slate-50">عدد الأوراق</td>
+                    <td class="p-3 text-emerald-700 font-bold">${aLeaves}</td>
+                    <td class="p-3 text-amber-700 font-bold">${bLeaves}</td>
+                </tr>
+                <tr>
+                    <td class="p-3 font-bold text-slate-700 bg-slate-50">لون الساق والأوراق</td>
+                    <td class="p-3 text-emerald-700 font-bold">${aColor}</td>
+                    <td class="p-3 text-amber-700 font-bold">${bColor}</td>
+                </tr>
+                <tr>
+                    <td class="p-3 font-bold text-slate-700 bg-slate-50">الشكل العام</td>
+                    <td class="p-3 text-emerald-700 font-bold">${aShape}</td>
+                    <td class="p-3 text-amber-700 font-bold">${bShape}</td>
+                </tr>
+            `;
+        }
+
+        // Interactive 6-Question Quiz Engine
+        function renderQuizStep() {
+            const container = document.getElementById('quiz-container');
+            const feedback = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('quiz-next-btn');
+            const progress = document.getElementById('quiz-progress');
+            
+            feedback.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+            progress.innerText = `السؤال ${currentQuizStep + 1} من 6`;
+
+            if (currentQuizStep === 0) {
+                // Question 1: Multiple Choice
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                            <span class="text-xs font-bold text-amber-800 bg-amber-200 px-3 py-1 rounded-full">السؤال 1 — اختيار من متعدد</span>
+                            <h3 class="text-xl font-black text-amber-900 mt-3">ما العامل الذي نريد معرفة تأثيره في هذا الاستقصاء؟</h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <button onclick="checkMCQAnswer(this, false)" class="quiz-option p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50 font-bold text-right transition-all text-base shadow-sm">
+                                أ) نوع التربة
+                            </button>
+                            <button onclick="checkMCQAnswer(this, true)" class="quiz-option p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50 font-bold text-right transition-all text-base shadow-sm">
+                                ب) كمية الضوء
+                            </button>
+                            <button onclick="checkMCQAnswer(this, false)" class="quiz-option p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50 font-bold text-right transition-all text-base shadow-sm">
+                                ج) كمية الماء
+                            </button>
+                            <button onclick="checkMCQAnswer(this, false)" class="quiz-option p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50 font-bold text-right transition-all text-base shadow-sm">
+                                د) حجم الوعاء
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (currentQuizStep === 1) {
+                // Question 2: True or False
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                            <span class="text-xs font-bold text-amber-800 bg-amber-200 px-3 py-1 rounded-full">السؤال 2 — صح أم خطأ</span>
+                            <h3 class="text-xl font-black text-amber-900 mt-3">الضوء عامل مهم في نمو النبات.</h3>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <button onclick="checkTFAnswer(true)" class="p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-300 hover:bg-emerald-100 font-black text-emerald-900 text-xl text-center shadow-md transition-all flex items-center justify-center gap-3">
+                                <span>✓</span> صح
+                            </button>
+                            <button onclick="checkTFAnswer(false)" class="p-6 rounded-2xl bg-rose-50 border-2 border-rose-300 hover:bg-rose-100 font-black text-rose-900 text-xl text-center shadow-md transition-all flex items-center justify-center gap-3">
+                                <span>✗</span> خطأ
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (currentQuizStep === 2) {
+                // Question 3: Drag and Drop (Interactive Categorization)
+                renderDragAndDropHTML();
+            } else if (currentQuizStep === 3) {
+                // Question 4: Multiple Choice
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                            <span class="text-xs font-bold text-amber-800 bg-amber-200 px-3 py-1 rounded-full">السؤال 4 — اختيار من متعدد</span>
+                            <h3 class="text-xl font-black text-amber-900 mt-3">لماذا نثبت كمية الماء ونوع التربة أثناء استقصاء تأثير الضوء؟</h3>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <button onclick="checkMCQAnswer(this, false)" class="quiz-option p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50 font-bold text-right transition-all text-base shadow-sm">
+                                أ) حتى نغيّر جميع العوامل
+                            </button>
+                            <button onclick="checkMCQAnswer(this, true)" class="quiz-option p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50 font-bold text-right transition-all text-base shadow-sm">
+                                ب) حتى نتأكد أن الضوء هو العامل المؤثر في نمو النبات
+                            </button>
+                            <button onclick="checkMCQAnswer(this, false)" class="quiz-option p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50 font-bold text-right transition-all text-base shadow-sm">
+                                ج) حتى يتوقف النبات عن النمو
+                            </button>
+                            <button onclick="checkMCQAnswer(this, false)" class="quiz-option p-4 rounded-2xl border-2 border-slate-200 hover:border-amber-500 hover:bg-amber-50 font-bold text-right transition-all text-base shadow-sm">
+                                د) حتى تتغير التربة
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (currentQuizStep === 4) {
+                // Question 5: Ordering Activity
+                renderOrderingHTML();
+            } else if (currentQuizStep === 5) {
+                // Question 6: Open-ended conclusion
+                container.innerHTML = `
+                    <div class="space-y-6">
+                        <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                            <span class="text-xs font-bold text-amber-800 bg-amber-200 px-3 py-1 rounded-full">السؤال 6 — تفكير واستنتاج</span>
+                            <h3 class="text-xl font-black text-amber-900 mt-3">إذا نما النبات الذي حصل على ضوء مناسب بصورة أفضل من النبات الموجود في الظلام، فما الاستنتاج الذي يمكن التوصل إليه؟</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <textarea id="conclusion-input" rows="4" class="w-full p-4 rounded-2xl border-2 border-slate-200 focus:border-amber-500 focus:outline-none font-bold text-slate-700 text-base" placeholder="اكتب استنتاجك هنا (مثال: الضوء يؤثر في نمو النبات وتحتاج النباتات للضوء)..."></textarea>
+                            <button onclick="checkConclusionAnswer()" class="bg-amber-600 hover:bg-amber-700 text-white font-black px-6 py-3 rounded-xl shadow-md transition-all">
+                                تحقق من الإجابة
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Final Results Screen
+                container.innerHTML = `
+                    <div class="text-center space-y-6 py-8">
+                        <span class="text-7xl inline-block animate-bounce">🏆</span>
+                        <h3 class="text-3xl font-black text-amber-900">أحسنت! أكملت الاختبار بنجاح</h3>
+                        <p class="text-slate-600 text-xl font-bold">لقد حصلت على <span class="text-emerald-600">${quizScore}</span> من 6 درجات.</p>
+                        <div class="bg-emerald-50 p-4 rounded-2xl max-w-md mx-auto border border-emerald-200 text-emerald-900 font-bold text-sm">
+                            🌟 أداء رائع! أنت طالب متميز وتستحق نجمة العلوم الصفية!
+                        </div>
+                        <div class="flex justify-center gap-4 pt-4">
+                            <button onclick="switchView('quiz')" class="bg-amber-600 hover:bg-amber-700 text-white font-black px-8 py-3.5 rounded-2xl shadow-lg transition-all text-base">
+                                إعادة الاختبار 🔄
+                            </button>
+                            <button onclick="switchView('home')" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-black px-8 py-3.5 rounded-2xl transition-all text-base">
+                                القائمة الرئيسية 🏠
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('quiz-progress').innerText = "تم الانتهاء بنجاح";
+                return;
+            }
+        }
+
+        // MCQ Handler
+        function checkMCQAnswer(buttonElem, isCorrect) {
+            const feedback = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('quiz-next-btn');
+            
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-emerald-100 text-emerald-800 border border-emerald-300 text-base shadow-sm";
+                feedback.innerHTML = "✓ إجابة صحيحة ورائعة!";
+                playSound('success');
+                quizScore++;
+                const buttons = buttonElem.parentElement.querySelectorAll('button');
+                buttons.forEach(b => b.disabled = true);
+                buttonElem.classList.add('border-emerald-500', 'bg-emerald-50');
+                nextBtn.classList.remove('hidden');
+            } else {
+                feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-rose-100 text-rose-800 border border-rose-300 text-base shadow-sm";
+                feedback.innerHTML = "✗ حاول مرة أخرى!";
+                playSound('error');
+                buttonElem.classList.add('border-rose-400', 'bg-rose-50');
+            }
+        }
+
+        // True/False Handler
+        function checkTFAnswer(isCorrect) {
+            const feedback = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('quiz-next-btn');
+            
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-emerald-100 text-emerald-800 border border-emerald-300 text-base shadow-sm";
+                feedback.innerHTML = "✓ أحسنت! إجابة صحيحة.";
+                playSound('success');
+                quizScore++;
+                nextBtn.classList.remove('hidden');
+            } else {
+                feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-rose-100 text-rose-800 border border-rose-300 text-base shadow-sm";
+                feedback.innerHTML = "✗ حاول مرة أخرى!";
+                playSound('error');
+            }
+        }
+
+        // Drag and Drop (Question 3) implementation
+        function renderDragAndDropHTML() {
+            const container = document.getElementById('quiz-container');
+            const items = ["كمية الضوء", "نمو النبات", "كمية الماء", "نوع التربة"];
+            
+            let unassignedItems = items.filter(item => !dragDropped[item]);
+
+            container.innerHTML = `
+                <div class="space-y-6">
+                    <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                        <span class="text-xs font-bold text-amber-800 bg-amber-200 px-3 py-1 rounded-full">السؤال 3 — سحب وإفلات التصنيف</span>
+                        <h3 class="text-xl font-black text-amber-900 mt-3">صنّف عناصر الاستقصاء بالنقر عليها لتوزيعها في المكان المناسب:</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+                            <h4 class="font-bold text-slate-700 text-sm">العناصر المتاحة للتصنيف:</h4>
+                            <div id="pool-container" class="flex flex-wrap gap-2 min-h-[100px] items-center">
+                                ${unassignedItems.length === 0 ? '<span class="text-xs text-slate-400 font-bold">تم تصنيف جميع العناصر!</span>' : ''}
+                                ${unassignedItems.map(item => `
+                                    <div onclick="selectItemToDrop('${item}')" class="bg-white hover:bg-amber-100 text-amber-900 border-2 border-amber-300 font-bold px-4 py-2.5 rounded-xl cursor-pointer shadow-xs transition-all text-sm">
+                                        📦 ${item}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div onclick="dropIntoZone('العامل الذي نغيّره')" class="bg-emerald-50 border-2 border-dashed border-emerald-400 p-4 rounded-2xl cursor-pointer hover:bg-emerald-100 transition-all">
+                                <h5 class="font-bold text-emerald-900 text-sm mb-1">🎯 العامل الذي نغيّره:</h5>
+                                <div class="text-emerald-700 font-black text-base min-h-[30px] flex items-center">
+                                    ${dragDropped["كمية الضوء"] === "العامل الذي نغيّره" ? '☀️ كمية الضوء' : '<span class="text-xs text-slate-400 font-normal">انقر هنا لوضع العنصر المناسب</span>'}
+                                </div>
+                            </div>
+
+                            <div onclick="dropIntoZone('العامل الذي نقيس أثره')" class="bg-teal-50 border-2 border-dashed border-teal-400 p-4 rounded-2xl cursor-pointer hover:bg-teal-100 transition-all">
+                                <h5 class="font-bold text-teal-900 text-sm mb-1">📏 العامل الذي نقيس أثره:</h5>
+                                <div class="text-teal-700 font-black text-base min-h-[30px] flex items-center">
+                                    ${dragDropped["نمو النبات"] === "العامل الذي نقيس أثره" ? '🌱 نمو النبات' : '<span class="text-xs text-slate-400 font-normal">انقر هنا لوضع العنصر المناسب</span>'}
+                                </div>
+                            </div>
+
+                            <div onclick="dropIntoZone('العوامل التي نثبتها')" class="bg-indigo-50 border-2 border-dashed border-indigo-400 p-4 rounded-2xl cursor-pointer hover:bg-indigo-100 transition-all">
+                                <h5 class="font-bold text-indigo-900 text-sm mb-1">🔒 عوامل يتم تثبيتها:</h5>
+                                <div class="text-indigo-700 font-black text-sm min-h-[30px] flex items-center gap-2 flex-wrap">
+                                    ${dragDropped["كمية الماء"] === "العوامل التي نثبتها" ? '<span class="bg-white px-2 py-1 rounded-md border border-indigo-200">💧 كمية الماء</span>' : ''}
+                                    ${dragDropped["نوع التربة"] === "العوامل التي نثبتها" ? '<span class="bg-white px-2 py-1 rounded-md border border-indigo-200">🪨 نوع التربة</span>' : ''}
+                                    ${dragDropped["كمية الماء"] !== "العوامل التي نثبتها" && dragDropped["نوع التربة"] !== "العوامل التي نثبتها" ? '<span class="text-xs text-slate-400 font-normal">انقر هنا لوضع كمية الماء ونوع التربة</span>' : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        let selectedItemForDrop = null;
+        function selectItemToDrop(item) {
+            selectedItemForDrop = item;
+            playSound('success');
+            const container = document.getElementById('quiz-container');
+            let banner = document.getElementById('drop-banner');
+            if (!banner) {
+                banner = document.createElement('div');
+                banner.id = 'drop-banner';
+                banner.className = 'bg-amber-100 text-amber-900 p-3 rounded-xl font-bold text-sm text-center mb-4';
+                container.prepend(banner);
+            }
+            banner.innerHTML = `تم اختيار عنصر: <b>${item}</b>. الآن انقر على صندوق التصنيف المناسب في اليمين!`;
+        }
+
+        function dropIntoZone(zoneName) {
+            if (!selectedItemForDrop) return;
+
+            if (
+                (selectedItemForDrop === "كمية الضوء" && zoneName === "العامل الذي نغيّره") ||
+                (selectedItemForDrop === "نمو النبات" && zoneName === "العامل الذي نقيس أثره") ||
+                ((selectedItemForDrop === "كمية الماء" || selectedItemForDrop === "نوع التربة") && zoneName === "العوامل التي نثبتها")
+            ) {
+                dragDropped[selectedItemForDrop] = zoneName;
+                playSound('success');
+                selectedItemForDrop = null;
+                renderDragAndDropHTML();
+
+                if (
+                    dragDropped["كمية الضوء"] === "العامل الذي نغيّره" &&
+                    dragDropped["نمو النبات"] === "العامل الذي نقيس أثره" &&
+                    dragDropped["كمية الماء"] === "العوامل التي نثبتها" &&
+                    dragDropped["نوع التربة"] === "العوامل التي نثبتها"
+                ) {
+                    const feedback = document.getElementById('quiz-feedback');
+                    const nextBtn = document.getElementById('quiz-next-btn');
+                    feedback.classList.remove('hidden');
+                    feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-emerald-100 text-emerald-800 border border-emerald-300 text-base shadow-sm";
+                    feedback.innerHTML = "✓ ممتاز! تم تصنيف جميع عناصر الاستقصاء بشكل صحيح تماماً.";
+                    quizScore++;
+                    nextBtn.classList.remove('hidden');
+                }
+            } else {
+                playSound('error');
+                selectedItemForDrop = null;
+                renderDragAndDropHTML();
+                const banner = document.getElementById('drop-banner');
+                if(banner) banner.innerHTML = "✗ مكان غير صحيح لهذا العنصر! حاول مرة أخرى.";
+            }
+        }
+
+        // Ordering Activity (Question 5) implementation
+        function renderOrderingHTML() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = `
+                <div class="space-y-6">
+                    <div class="bg-amber-50 p-5 rounded-2xl border border-amber-200">
+                        <span class="text-xs font-bold text-amber-800 bg-amber-200 px-3 py-1 rounded-full">السؤال 5 — ترتيب خطوات الاستقصاء</span>
+                        <h3 class="text-xl font-black text-amber-900 mt-3">رتّب خطوات الاستقصاء باستخدام أزرار التبديل لأعلى ولأسفل:</h3>
+                    </div>
+
+                    <div class="space-y-3 max-w-xl mx-auto">
+                        ${orderSteps.map((step, idx) => `
+                            <div class="bg-white p-4 rounded-2xl border-2 border-slate-200 flex justify-between items-center shadow-xs">
+                                <span class="font-black text-amber-800 text-base"><b>${idx + 1}.</b> ${step}</span>
+                                <div class="flex gap-2">
+                                    <button onclick="moveStep(${idx}, -1)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-xl font-bold flex items-center justify-center transition-all">⬆️</button>
+                                    <button onclick="moveStep(${idx}, 1)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 w-10 h-10 rounded-xl font-bold flex items-center justify-center transition-all">⬇</button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button onclick="checkOrderingAnswer()" class="bg-amber-600 hover:bg-amber-700 text-white font-black px-8 py-3.5 rounded-2xl shadow-md transition-all text-base">
+                            تحقق من الترتيب
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function moveStep(index, direction) {
+            const newIndex = index + direction;
+            if (newIndex >= 0 && newIndex < orderSteps.length) {
+                const temp = orderSteps[index];
+                orderSteps[index] = orderSteps[newIndex];
+                orderSteps[newIndex] = temp;
+                playSound('success');
+                renderOrderingHTML();
+            }
+        }
+
+        function checkOrderingAnswer() {
+            const feedback = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('quiz-next-btn');
+            
+            let isCorrect = true;
+            for (let i = 0; i < correctOrder.length; i++) {
+                if (orderSteps[i] !== correctOrder[i]) {
+                    isCorrect = false;
+                    break;
+                }
+            }
+
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-emerald-100 text-emerald-800 border border-emerald-300 text-base shadow-sm";
+                feedback.innerHTML = "✓ ممتاز! ترتيب الخطوات صحيح وصحيح تماماً.";
+                playSound('success');
+                quizScore++;
+                nextBtn.classList.remove('hidden');
+            } else {
+                feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-rose-100 text-rose-800 border border-rose-300 text-base shadow-sm";
+                feedback.innerHTML = "✗ الترتيب غير صحيح بعد. حاول ترتيب الخطوات مرة أخرى (ابدأ بتحديد السؤال ثم التجربة...).";
+                playSound('error');
+            }
+        }
+
+        // Open-ended conclusion check
+        function checkConclusionAnswer() {
+            const val = document.getElementById('conclusion-input').value.trim();
+            const feedback = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('quiz-next-btn');
+
+            feedback.classList.remove('hidden');
+            if (val.length > 3) {
+                feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-emerald-100 text-emerald-800 border border-emerald-300 text-base shadow-sm";
+                feedback.innerHTML = "✓ استنتاج رائع وممتاز! الضوء يؤثر بالفعل في نمو النبات.";
+                playSound('success');
+                quizScore++;
+                nextBtn.classList.remove('hidden');
+            } else {
+                feedback.className = "mt-4 p-4 rounded-2xl font-bold text-center bg-rose-100 text-rose-800 border border-rose-300 text-base shadow-sm";
+                feedback.innerHTML = "✗ يرجى كتابة إجابة تفصيلية حول استنتاجك لنمو النبات والضوء.";
+                playSound('error');
+            }
+        }
+
+        function nextQuizStep() {
+            currentQuizStep++;
+            renderQuizStep();
+        }
+
+        // Initialize view on load
+        window.onload = function() {
+            switchView('home');
+        };
+    </script>
+</body>
+</html>
